@@ -1,6 +1,6 @@
 package com.example.mathieu.wcs;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         final Button button  = (Button) findViewById(R.id.button);
         final EditText editText1 = (EditText) findViewById(R.id.editText1);
         final EditText editText2 = (EditText) findViewById(R.id.editText2);
-        final CheckBox checkBox = (CheckBox) findViewById(R.id.checkbox) ;
+        final CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox) ;
         final TextView textView3 = (TextView) findViewById(R.id.textView3);
 
 
@@ -37,7 +37,9 @@ public class MainActivity extends AppCompatActivity {
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 editText1.setEnabled(checkBox.isChecked());
+                editText1.setText("");
                 editText2.setEnabled(checkBox.isChecked());
+                editText2.setText("");
                 button.setEnabled(checkBox.isChecked());
 
                 if (!isChecked){
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
                 else {
                     textView3.setVisibility(View.VISIBLE);
-                    textView3.setText(getString(R.string.Bravo) + editText1.getText() + " " + editText2.getText());
+                    textView3.setText(getString(R.string.Bravo) + " " + editText1.getText() + " " + editText2.getText());
 
                 }
 
